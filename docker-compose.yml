@@ -1,5 +1,4 @@
 services:
-
   # The 'setup' service runs a one-off script which initializes users inside
   # Elasticsearch — such as 'logstash_internal' and 'kibana_system' — with the
   # values of the passwords defined in the '.env' file. It also creates the
@@ -73,6 +72,7 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+      - ./logstash/transactions:/usr/share/logstash/transactions:ro,Z
     ports:
       - 5044:5044
       - 50000:50000/tcp
